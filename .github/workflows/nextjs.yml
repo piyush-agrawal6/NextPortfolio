@@ -48,6 +48,9 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
+        env:
+            NEXT_GITHUB_API_KEY: ${{ secrets.NEXT_GITHUB_API_KEY }}
+            NEXT_PUBLIC_GITHUB_USERNAME: ${{ secrets.NEXT_PUBLIC_GITHUB_USERNAME }}
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
