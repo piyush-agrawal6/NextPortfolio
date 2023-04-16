@@ -1,0 +1,15 @@
+.container {
+  margin: 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+}
+.heading{
+  display: flex;
+  justify-content: space-between;
+}
+.heading > a {
+  text-decoration: none;
+  cursor: pointer;
+  color: yellow;
+}

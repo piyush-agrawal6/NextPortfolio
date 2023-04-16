@@ -1,0 +1,19 @@
+
+.infoDiv {
+  width: 100%;
+  padding: 1.5rem 0 0.5rem 0;
+}
+.infoDiv > div {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.infoDiv > div li {
+  margin-bottom: 10px;
+}
+
+.infoDiv img {
+  width: 250px;
+}
