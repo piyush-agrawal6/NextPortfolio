@@ -14,7 +14,7 @@ const GithubPage = ({ repos, user }) => {
 
   return (
     <>
-      {/* <div className={styles.user}>
+      <div className={styles.user}>
         <div>
           <a target="blank" href="https://github.com/piyush-agrawal6">
             <Image
@@ -48,39 +48,39 @@ const GithubPage = ({ repos, user }) => {
           hideColorLegend
           hideMonthLabels
         />
-      </div> */}
+      </div>
     </>
   );
 };
 
-// export async function getStaticProps() {
-//   const userRes = await fetch(
-//     `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`,
-//     {
-//       headers: {
-//         Authorization: `token ${process.env.GITHUB_API_KEY}`,
-//       },
-//     }
-//   );
-//   const user = await userRes.json();
+export async function getStaticProps() {
+  const userRes = await fetch(
+    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`,
+    {
+      headers: {
+        Authorization: `token ${process.env.NEXT_GITHUB_API_KEY}`,
+      },
+    }
+  );
+  const user = await userRes.json();
 
-//   const repoRes = await fetch(
-//     `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?per_page=100`,
-//     {
-//       headers: {
-//         Authorization: `token ${process.env.GITHUB_API_KEY}`,
-//       },
-//     }
-//   );
-//   let repos = await repoRes.json();
-//   repos = repos
-//     .sort((a, b) => b.stargazers_count - a.stargazers_count)
-//     .slice(0, 6);
+  const repoRes = await fetch(
+    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?per_page=100`,
+    {
+      headers: {
+        Authorization: `token ${process.env.NEXT_GITHUB_API_KEY}`,
+      },
+    }
+  );
+  let repos = await repoRes.json();
+  repos = repos
+    .sort((a, b) => b.stargazers_count - a.stargazers_count)
+    .slice(0, 6);
 
-//   return {
-//     props: { title: "GitHub", repos, user },
-//     revalidate: 10,
-//   };
-// }
+  return {
+    props: { title: "GitHub", repos, user },
+    revalidate: 10,
+  };
+}
 
 export default GithubPage;
